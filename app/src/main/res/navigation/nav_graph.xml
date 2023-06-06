@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        tools:layout="@layout/main_fragment"
+        android:id="@+id/mainFragment"
+        android:name="com.example.taskmanager.screens.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+        <argument
+            android:name="label"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument android:name="info"
+            app:argType="string"
+            android:defaultValue=""/>
+        <action
+            android:id="@+id/action_mainFragment_to_taskInfoFragment"
+            app:destination="@id/taskInfoFragment" />
+
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/edit_fragment"
+        android:id="@+id/editFragment"
+        android:name="com.example.taskmanager.screens.EditFragment"
+        android:label="EditFragment" >
+        <action
+            android:id="@+id/action_editFragment_to_mainFragment_byCancel"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_editFragment_to_mainFragment_byAdd"
+            app:destination="@id/mainFragment">
+        </action>
+
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/task_info_fragment"
+        android:id="@+id/taskInfoFragment"
+        android:name="com.example.taskmanager.screens.TaskInfoFragment"
+        android:label="TaskInfoFragment" >
+        <action
+            android:id="@+id/action_taskInfoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="label"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument android:name="info"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+</navigation>
